@@ -1,5 +1,5 @@
 | ОК - Шкаф на стулxе|
-<html>
+<!-- <html>
 	<head>
 		<script type="text/javascript" src="//cdn.jsdelivr.net/replay-table/latest/replay-table.min.js"></script>
 		<link rel="stylesheet" type="text/css" href="cdn.jsdelivr.net/replay-table/latest/replay-table.css">
@@ -51,4 +51,44 @@
 		<div class="replayTable" data-csv="2.csv" data-table-name="OK" data-input-type="measure" data-item-name="sensor" data-use-rounds-numbers="false"> </div>
 		<script type="text/javascript" src="//cdn.jsdelivr.net/replay-table/latest/replay-table.min.js"></script>
 	</body>
+</html>
+-->
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <style>
+            table {
+                border-collapse: collapse;
+                border: 2px black solid;
+                font: 12px sans-serif;
+            }
+
+            td {
+                border: 1px black solid;
+                padding: 5px;
+            }
+        </style>
+    </head>
+    <body>
+        <!-- <script src="http://d3js.org/d3.v3.min.js"></script> -->
+        <script src="d3.min.js?v=3.2.8"></script>
+
+        <script type="text/javascript"charset="utf-8">
+            d3.text("2.csv", function(data) {
+                var parsedCSV = d3.csv.parseRows(data);
+
+                var container = d3.select("body")
+                    .append("table")
+
+                    .selectAll("tr")
+                        .data(parsedCSV).enter()
+                        .append("tr")
+
+                    .selectAll("td")
+                        .data(function(d) { return d; }).enter()
+                        .append("td")
+                        .text(function(d) { return d; });
+            });
+        </script>
+    </body>
 </html>
