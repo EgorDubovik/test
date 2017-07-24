@@ -1,3 +1,4 @@
+alert("test");
 var arrayPopen = [
 "http://qwatercut.ru/test3d/images/open/Vagabond_open_0000.jpg",
 "http://qwatercut.ru/test3d/images/open/Vagabond_open_0001.jpg",
